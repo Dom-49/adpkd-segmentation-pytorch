@@ -1,0 +1,55 @@
+filename_rules:
+  "//": "_"
+  "\\": "_"
+  "/": "_"
+  ":": "--"
+  "*": "x"
+  "?": "-"
+  '"': "--"
+  "'": "-"
+  "<": "_"
+  ">": "_"
+  "|": "_"
+  " ": "_"
+reference_planes: "1 0 0 0 1 0; 1 0 0 0 0 -1; 0 1 0 0 0 1"
+plane_keys: ["Axial", "Coronal", "Sagittal"]
+mode: "ensemble addition"
+svd_inf: "saved_inference"
+svd_figs: "saved_figs"
+youngest_child: "ITKSNAP_DCM_NIFTI"
+dicom_ext: "dcm"
+pred_vol: "pred_vol.nii"
+dicom_vol: "dicom_vol.nii"
+combined_folder: "multiorgan_ensemble"
+combined_pred_filename: "comb_pred_vol.nii"
+organ_name: ["kidney", "liver", "spleen"]
+ensemble_index: [0,1,2,3]
+inference_ensemble_color: [0,1,4,3]
+individual_flag: False
+kidney_side: "left"
+kidney_ensemble_color: 1
+kidney_side_color: 2
+model_dir: # Key structure: [sequence][orientation]
+  T2:
+    Axial:
+      - "checkpoints/inference_kidney_axial_t2.yml"
+      - "checkpoints/inference_liver_axial_t2.yml"
+      - "checkpoints/inference_spleen_axial_t2.yml"
+    Coronal:
+      - "checkpoints/inference_kidney_coronal_t2.yml"
+      - "checkpoints/inference_liver_coronal_t2.yml"
+      - "checkpoints/inference_spleen_coronal_t2.yml"
+  SSFP:
+    Axial:
+      - "checkpoints/inference_kidney_axial_ssfp.yml"
+      - "checkpoints/inference_liver_axial_ssfp.yml"
+      - "checkpoints/inference_spleen_axial_ssfp.yml"
+    Coronal:
+      - "checkpoints/inference_kidney_coronal_ssfp.yml"
+      - "checkpoints/inference_liver_coronal_ssfp.yml"
+      - "checkpoints/inference_spleen_coronal_ssfp.yml"
+  T1:
+    Axial:
+      - "checkpoints/inference_kidney_axial_t1.yml"
+      - "checkpoints/inference_liver_axial_t1.yml"
+      - "checkpoints/inference_spleen_axial_t1.yml"
